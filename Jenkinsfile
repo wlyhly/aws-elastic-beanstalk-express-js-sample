@@ -1,15 +1,14 @@
 pipeline {
     agent {
         docker {
-            image 'node:16'  // Use Node 16 Docker image as the build agent
-            args '-u root'   // Run as root user for permissions in Docker
+            image 'node:16' 
+            args '-p 3000:3000' 
         }
     }
-    
     stages {
-        stage('Build') {
+        stage('Build') { 
             steps {
-                sh 'npm install --save'  // Run npm install command
+                sh 'npm install --save' 
             }
         }
     }
